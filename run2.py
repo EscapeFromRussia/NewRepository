@@ -4,8 +4,6 @@ from collections import defaultdict, deque
 
 
 def solve(edges: list[tuple[str, str]]) -> list[str]:
-
-
     adj = defaultdict(set)
     for u, v in edges:
         adj[u].add(v)
@@ -105,3 +103,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
