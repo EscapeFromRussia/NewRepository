@@ -65,10 +65,10 @@ def solve(edges: list[tuple[str, str]]) -> list[str]:
                 return seq
             cand_sh = [sh for sh, d in new_reach_d.items() if d == new_min_d]
             target = min(cand_sh)
-            curr_d = new_min_d
+            dist_to_target = compute_dists(target, new_disc)
             possible_next = []
             for neigh in adj[pos]:
-                if is_connected(pos, neigh, new_disc) and new_dists.get(neigh, inf) == curr_d - 1:
+                if is_connected(pos, neigh, new_disc) and dist_to_target[neigh] == dist_to_target[pos] - 1:
                     possible_next.append(neigh)
             if not possible_next:
                 continue
@@ -103,4 +103,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
